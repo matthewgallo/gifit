@@ -1,0 +1,53 @@
+{
+	"name": "resound",
+	"version": "0.1.0",
+	"private": true,
+	"proxy": "http://localhost:8081",
+	"engines": {
+		"node": "6.11.2",
+		"npm": "4.1.2"
+	},
+	"devDependencies": {
+		"babel-eslint": "^7.2.3",
+		"babel-watch": "^2.0.7",
+		"concurrently": "^3.5.0",
+		"husky": "^0.14.3",
+		"lint-staged": "^4.0.2",
+		"prettier": "^1.5.3",
+		"react-scripts": "1.0.13"
+	},
+	"dependencies": {
+		"babel-cli": "^6.24.1",
+		"babel-preset-es2015": "^6.24.1",
+		"babel-preset-react": "^6.24.1",
+		"babel-preset-stage-2": "^6.24.1",
+		"body-parser": "^1.17.2",
+		"compression": "^1.7.0",
+		"express": "^4.15.4",
+		"express-session": "^1.15.5",
+		"fs": "^0.0.1-security",
+		"morgan": "^1.8.2",
+		"multer": "^1.3.0",
+		"path": "^0.12.7",
+		"react": "^15.6.1",
+		"react-dom": "^15.6.1",
+		"request": "^2.81.0"
+	},
+	"scripts": {
+		"bluemix": "babel-node index.js",
+		"start": "concurrently \"PORT=8080 react-scripts start\" \"PORT=8081 babel-watch index.js\"",
+		"precommit": "lint-staged",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom"
+	},
+	"lint-staged": {
+		"src/**/*.js": [
+			"prettier --trailing-comma es5 --single-quote --write",
+			"git add"
+		],
+		"index.js": [
+			"prettier --trailing-comma es5 --single-quote --write",
+			"git add"
+		]
+	}
+}

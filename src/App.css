@@ -1,0 +1,11 @@
+.App {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.gif-search-input {
+	margin: 2rem 0;
+	padding: .5rem;
+  width: 200px;
+}
